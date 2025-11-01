@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genral Quiz</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- From section 1 -->
+    <section class="from">
+        <h1 class="details">Student Details</h1>
+        <form class="input">
+            <input type="text" placeholder="Type Your Name" id="input-name">
+            <input type="email" placeholder="Type Your Email" id="input-email">
+            <input type="text" placeholder="Type Your RollNumber" id="input-roll">
+            <input type="text" placeholder="Type Your Institute" id="input-inst">
+     </form>
+        <button class="submitBtn" id="submitBtn" onclick="showQuiz()">SUBMIT</button>
+    </section>
+    
+    <!-- section 2 -->
+     <section class="quiz-intro">
+        <div class="intro-wraper">
+            <h2>Welcom To Genral Quiz</h2>
+            <p>Name: <span id="para-name"></span></p>
+            <p>Email: <span id="para-email"></span></p>
+            <p>RollNumber: <span id="para-roll"></span></p>
+            <button class="startBtn" id="startBtn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+     </section>
+
+     <!-- section 3 -->
+  <section class="quizbody">
+    <div class="quiz-header">
+      <h2>Question <span class="numb">1</span> / <span class="total-questions"></span></h2>
+      <p id="question-tag"> hello question no 1</p>
+    </div>
+    <ul id="option-ul">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <button class="nextBtn">Next</button>
+  </section>
+   
+  <!-- section 4  -->
+  <section class="result">
+    <h2>Quiz Result</h2>
+    <div class="details">
+      <p>Name: <span id="res-name"></span></p>
+      <p>Email: <span id="res-email"></span></p>
+      <p>Roll No: <span id="res-roll"></span></p>
+      <p>Institue: <span id="res-inst"></span></p>
+    </div>
+
+    <div class="stats">
+      <p>Total Questions: <span id="ttl"></span></p>
+      <p>Correct: <span id="ra"></span></p>
+      <p>Wrong: <span id="wa"></span></p>
+      <p>Missed: <span id="mis"></span></p>
+      <p>Percentage: <span id="perc"></span>%</p>
+      <p class="define"></p>
+    </div>
+
+  </section> 
+      
+</body>
+<script src="./app.js"></script>
+</html>
