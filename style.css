@@ -157,11 +157,10 @@ section{
 }
 .quizbody li{
     padding-block: 0.4rem;
-    transition: background-color 250ms ease-in-out;
-    
+    cursor: pointer;
 }
 .quizbody li:hover{
-  background-color: #eedfff;
+  background-color: #dbdbdb;
 }
 
 
@@ -218,18 +217,18 @@ section{
 }
 
 
-#ra {
-  color: #28a745; 
+.rgt {
+  background-color: #28a745; 
   font-weight: 600;
 }
 
-#wa {
-  color: #dc3545; 
+.wrng {
+  background-color: #dc3545; 
   font-weight: 600;
 }
 
-#mis {
-  color: #ffc107; 
+.mis {
+  background-color: #ffc107; 
   font-weight: 600;
 }
 
@@ -249,4 +248,8 @@ section{
     opacity: 1;
     transform: translateY(0);
   }
+}
+.disableLi{
+  pointer-events: none;
+  opacity: 0.75;
 }

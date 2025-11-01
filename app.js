@@ -120,6 +120,19 @@ var questionTag = document.getElementById("question-tag");
 var optionLi = document.getElementById("option-ul").children;
 var nextBtn = document.querySelector(".nextBtn");
 
+// dom for sec 4
+var result = document.querySelector(".result");
+var resName = document.getElementById("res-name");
+var resEmail = document.getElementById("res-email");
+var resRno = document.getElementById("res-roll");
+var resinst = document.getElementById("res-inst");
+
+var ttl = document.getElementById("ttl");
+var rightAns = document.getElementById("rgt");
+var wrongAns = document.getElementById("wrng");
+var percentage = document.getElementById("percentange");
+
+
 
 function showQuiz(){
   if(!(inputName.value.trim()) || !(inputEmail.value.trim()) || !(rollNumber.value.trim()) || !(institute.value.trim())){
@@ -135,7 +148,7 @@ function showQuiz(){
   document.getElementById("para-roll").innerText = rollNumber.value
 
 }
-
+var currentNo = 1;
 var current = 0;
 var correct = 0;
 var wrong = 0;
@@ -153,14 +166,91 @@ function loadQuestion() {
   optionLi[1].innerText= questions[current].option.b;
   optionLi[2].innerText= questions[current].option.c;
   optionLi[3].innerText= questions[current].option.d;
+
+   numb.innerHTML = currentNo;
+   totalQuestions.innerHTML = questions.length;
+
+     for( var i= 0 ; i < optionLi.length ; i++){
+   
+     optionLi[i].setAttribute("onclick" , "checkAns(this)")
+  }
  }
+
+
+
 }
 
  nextBtn.addEventListener("click" , function next() {
  current++;
+if(current < questions.length) {
+ currentNo++;
  loadQuestion()
- 
+}else{
+  showResult()
+}
+
+for( var i= 0 ; i < optionLi.length ; i++){
+   
+     optionLi[i].classList.remove("rgt" , "wrng" , "disableLi")
+  }
 })
+
+// function checkAns(event) {
+// if(event.innerText === questions[current].answer) {
+//    event.classList.add("rgt")
+  
+// }else{
+//     event.classList.add("wrng")
+// }
+
+ 
+// }
+
+function checkAns(ele){
+
+    if(ele.innerText === questions[current].answer){
+      ele.className = "rgt";
+      correct++
+    }else{
+       ele.className = "wrng";
+       wrong++
+    
+       for(var li of optionLi){
+      if(li.innerHTML === questions[current].answer){
+        li.classList.add("rgt");
+      }
+    }
+    }
+
+
+    for(var li of optionLi){
+      li.classList.add("disableLi");
+     
+    }
+
+}
+
+function showResult(){
+  quizBody.style.display = "none";
+  result.style.display = "block";
+
+  resName.innerHTML = inputName.value;
+
+  resEmail.innerHTML = inputEmail.value;
+  resRno.innerHTML = rollNumber.value;
+  resinst.innerHTML = institute.value;
+
+  ttl.innerHTML = questions.length;
+  rightAns.innerHTML = correct;
+  wrongAns.innerHTML = wrong ;
+
+  var percent = Math.round((correct / questions.length) * 100);
+
+  percentage.innerHTML = percent;
+
+  
+
+}
 
 
 
